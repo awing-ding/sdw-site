@@ -19,4 +19,6 @@ SetEnv db_host x
 SetEnv db_name y
 SetEnv username z
 SetEnv password f
+SetEnv API_username g
+SetEnv API_password h
 ```

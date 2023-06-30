@@ -9,7 +9,7 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
     http_response_code(401);
     exit;
 }
-elseif ($_SERVER['PHP_AUTH_USER'] == "bot" and $_SERVER['PHP_AUTH_PW'] == "pwd"){
+elseif ($_SERVER['PHP_AUTH_USER'] == $_SERVER['API_username'] and $_SERVER['PHP_AUTH_PW'] == $_SERVER['API_password']){
     header("Content-Type: application/json; charset=UTF-8");
     header("Access-Control-Max-Age: 3600");
 
