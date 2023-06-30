@@ -1,6 +1,8 @@
 <?php 
 //connexion à mysql
-include('../../include/mysqlconnect.php');
+include('../../include/db_connection.php');
+$database = new Database();
+$bdd = $database->getConnection();;
 
 if ($_GET['raison'] == 'login') 
 {

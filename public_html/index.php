@@ -1,4 +1,6 @@
-<?php include('./include/mysqlconnect.php') ?>
+<?php include('./include/db_connection.php');
+$database = new Database();
+$bdd = $database->getConnection(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

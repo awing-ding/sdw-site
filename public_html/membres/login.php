@@ -1,6 +1,8 @@
 <?php 
     /* This is a way to include a file from another directory to connect to the database. */
-    include('../include/mysqlconnect.php');
+    include('../include/db_connection.php');
+$database = new Database();
+$bdd = $database->getConnection();;
 ?>
 <!DOCTYPE html>
 <html lang="fr">

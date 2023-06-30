@@ -1,6 +1,8 @@
 <?php 
 /* This is a php file that contains the connection to the database. */
-include('../../include/mysqlconnect.php');
+include('../../include/db_connection.php');
+$database = new Database();
+$bdd = $database->getConnection();;
 
 /* This is a simple if statement that checks if the user is logged in as admin. If they are, then the
 code inside the if statement will be executed. If they are not, then the code inside the else

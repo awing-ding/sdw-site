@@ -3,12 +3,19 @@
 
     class Database{
         // Propriétés de la base de données
-        private $host = "localhost";
-        private $db_name = "id15985403_fiche_sdw";
-        private $username = "id15985403_reader";
-        private $password = "f6qy+A<YEhZ?qcIL";
+        private $host;
+        private $db_name;
+        private $username;
+        private $password;
 
-        public $connexion;
+        public $connexion = null;
+
+        function __construct(){
+            $this->host = $_SERVER['db_host'];
+            $this->db_name = $_SERVER['db_name'];
+            $this->username = $_SERVER['db_username'];
+            $this->password = $_SERVER['db_password'];
+        }
     
         // getter pour la connexion
         public function getConnection(){

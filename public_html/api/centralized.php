@@ -18,11 +18,11 @@ elseif ($_SERVER['PHP_AUTH_USER'] == "bot" and $_SERVER['PHP_AUTH_PW'] == "pwd")
     include_once '../include/dataQuery.php';
 
     $database = new Database();
-    $db = $database->getConnection();   
-    $dataFiche = new mainData($db); 
-    $militaire = new militaire($db);
-    $villes = new villes($db);
-    $loggingTable = new logMembre($db);
+    $bdd = $database->getConnection();   
+    $dataFiche = new mainData($bdd); 
+    $militaire = new militaire($bdd);
+    $villes = new villes($bdd);
+    $loggingTable = new logMembre($bdd);
     
     if ($_SERVER['REQUEST_METHOD'] == 'GET'){
         
@@ -220,7 +220,7 @@ elseif ($_SERVER['PHP_AUTH_USER'] == "bot" and $_SERVER['PHP_AUTH_PW'] == "pwd")
                 http_response_code(200);
                 echo json_encode(["message" => "création effectuée"]);
             }
-            elseif ($createData xor $createMilitaire xor $createvilles){
+            elseif ((!$createData or !$createMilitaire or !$createville) and !(!$createData and !$createMilitaire and !$createville)){
                 http_response_code(500);
                 echo json_encode(["error" => "FATAL ERROR, OPERATION ECHOUEE, INTEGRITE DE LA BASE DE DONNEE COMPROMISE"]);
             }
@@ -235,7 +235,7 @@ elseif ($_SERVER['PHP_AUTH_USER'] == "bot" and $_SERVER['PHP_AUTH_PW'] == "pwd")
         }
     }
     else{
-        http_response_code(406);
+        http_response_code(405);
         echo json_encode(["error" => "unknown method"]);
     }
 }

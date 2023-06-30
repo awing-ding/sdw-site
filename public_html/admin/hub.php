@@ -1,6 +1,8 @@
 <?php 
 /* This is a PHP file that contains the connection to the database. */
-include('../include/mysqlconnect.php');
+include('../include/db_connection.php');
+$database = new Database();
+$bdd = $database->getConnection();;
 ?>
 <!DOCTYPE html>
 <html lang="en">

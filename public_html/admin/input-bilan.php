@@ -1,6 +1,8 @@
 <?php 
 /* This is a PHP file that contains the connection to the database. */
-include('../include/mysqlconnect.php');
+include('../include/db_connection.php');
+$database = new Database();
+$bdd = $database->getConnection();;
 /* This is a way to check if the GET request has an id. If it does, it will set the id to the session. */
 if (isset($_GET['id'])) {
     $_SESSION['idSecondaire'] = $_GET['id'];

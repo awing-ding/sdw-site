@@ -1,6 +1,8 @@
 <?php
     /* Including the file `mysqlconnect.php` from the `include` folder. */
-    include('../../include/mysqlconnect.php');
+    include('../../include/db_connection.php');
+$database = new Database();
+$bdd = $database->getConnection();;
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,6 +1,8 @@
 <?php 
 /* This is a way to connect to the database. */
-include('../../include/mysqlconnect.php');
+include('../../include/db_connection.php');
+$database = new Database();
+$bdd = $database->getConnection();;
 /* This is a way to display errors. */
 error_reporting(E_ALL);
 ini_set("display_errors", TRUE);
